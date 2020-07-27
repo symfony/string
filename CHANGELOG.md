@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+5.1.1
+-----
+
+ * added the unspecified currency "¤"
+ 
 5.1.0
 -----
 

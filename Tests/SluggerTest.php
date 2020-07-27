@@ -39,6 +39,7 @@ class SluggerTest extends TestCase
             ['该变量的值应为', 'zh', 'gai-bian-liang-de-zhi-ying-wei'],
             ['該變數的值應為', 'zh_TW', 'gai-bian-shu-de-zhi-ying-wei'],
             ['Wôrķšƥáçè ~~sèťtïñğš~~', 'C', 'Workspace-settings'],
+            ['Medizin in fernen LÃ¤ndern', 'C', 'Medizin-in-fernen-LA-ndern'],
         ];
     }
 
