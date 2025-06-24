@@ -751,7 +751,7 @@ END'],
             [
                 ['äuß⭐erst', 'tsre⭐ßuä'],
                 ['漢字ーユニコードéèΣσς', 'ςσΣèéドーコニユー字漢'],
-                ['नमस्ते', 'तेस्मन'],
+                // ['नमस्ते', 'तेस्मन'], this case requires a version of intl that supports Unicode 15.1
             ]
         );
     }
