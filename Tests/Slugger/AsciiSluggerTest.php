@@ -112,7 +112,7 @@ class AsciiSluggerTest extends TestCase
      */
     public function testSlugEmojiWithSetLocale()
     {
-        if (!setlocale(LC_ALL, 'C.UTF-8')) {
+        if (!setlocale(\LC_ALL, 'C.UTF-8')) {
             $this->markTestSkipped('Unable to switch to the "C.UTF-8" locale.');
         }
 
