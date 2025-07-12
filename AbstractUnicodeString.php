@@ -264,7 +264,7 @@ abstract class AbstractUnicodeString extends AbstractString
 
     public function normalize(int $form = self::NFC): static
     {
-        if (!\in_array($form, [self::NFC, self::NFD, self::NFKC, self::NFKD])) {
+        if (!\in_array($form, [self::NFC, self::NFD, self::NFKC, self::NFKD], true)) {
             throw new InvalidArgumentException('Unsupported normalization form.');
         }
 
