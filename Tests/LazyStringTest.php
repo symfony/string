@@ -11,6 +11,7 @@
 
 namespace Symfony\Component\String\Tests;
 
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\ErrorHandler\ErrorHandler;
 use Symfony\Component\String\LazyString;
@@ -29,9 +30,7 @@ class LazyStringTest extends TestCase
         $this->assertSame(1, $count);
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    #[RunInSeparateProcess]
     public function testReturnTypeError()
     {
         ErrorHandler::register();
