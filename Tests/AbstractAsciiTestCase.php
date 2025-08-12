@@ -69,7 +69,7 @@ abstract class AbstractAsciiTestCase extends TestCase
     }
 
     #[DataProvider('provideIndexOf')]
-    public function testContainsAny(?int $result, string $string, $needle)
+    public function testContainsAny(?int $result, string $string, $needle, int $offset)
     {
         $instance = static::createFromString($string);
 
@@ -77,7 +77,7 @@ abstract class AbstractAsciiTestCase extends TestCase
     }
 
     #[DataProvider('provideIndexOfIgnoreCase')]
-    public function testContainsAnyIgnoreCase(?int $result, string $string, $needle)
+    public function testContainsAnyIgnoreCase(?int $result, string $string, $needle, int $offset)
     {
         $instance = static::createFromString($string);
 
