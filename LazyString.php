@@ -103,7 +103,7 @@ class LazyString implements \Stringable, \JsonSerializable
 
     public function __serialize(): array
     {
-        if (self::class === (new \ReflectionMethod($this, '__sleep'))->class) {
+        if (self::class === (new \ReflectionMethod($this, '__sleep'))->class || self::class !== (new \ReflectionMethod($this, '__serialize'))->class) {
             $this->__toString();
 
             return ['value' => $this->value];
