@@ -406,9 +406,7 @@ class UnicodeString extends AbstractUnicodeString
     }
 
     /**
-     * @internal since Symfony 7.4, will be removed in 8.0
-     *
-     * @final since Symfony 7.4, will be removed in 8.0
+     * @deprecated since Symfony 7.4, will be replaced by `__unserialize()` in 8.0
      */
     public function __wakeup(): void
     {
