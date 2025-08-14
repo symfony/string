@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+7.4
+---
+
+ * Deprecate implementing `__sleep/wakeup()` on string implementations
+
 7.3
 ---
 

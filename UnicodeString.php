@@ -366,8 +366,54 @@ class UnicodeString extends AbstractUnicodeString
         return $prefix === $grapheme;
     }
 
+    public function __unserialize(array $data): void
+    {
+        if ($wakeup = self::class !== (new \ReflectionMethod($this, '__wakeup'))->class) {
+            trigger_deprecation('symfony/string', '7.4', 'Implementing "%s::__wakeup()" is deprecated, use "__unserialize()" instead.', get_debug_type($this));
+        }
+
+        try {
+            if (\in_array(array_keys($data), [['string'], ["\0*\0string"]], true)) {
+                $this->string = $data['string'] ?? $data["\0*\0string"];
+
+                if ($wakeup) {
+                    $this->__wakeup();
+                }
+
+                return;
+            }
+
+            trigger_deprecation('symfony/string', '7.4', 'Passing more than just key "string" to "%s::__unserialize()" is deprecated, populate properties in "%s::__unserialize()" instead.', self::class, get_debug_type($this));
+
+            \Closure::bind(function ($data) use ($wakeup) {
+                foreach ($data as $key => $value) {
+                    $this->{("\0" === $key[0] ?? '') ? substr($key, 1 + strrpos($key, "\0")) : $key} = $value;
+                }
+
+                if ($wakeup) {
+                    $this->__wakeup();
+                }
+            }, $this, static::class)($data);
+        } finally {
+            if (!$wakeup) {
+                if (!\is_string($this->string)) {
+                    throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
+                }
+
+                normalizer_is_normalized($this->string) ?: $this->string = normalizer_normalize($this->string);
+            }
+        }
+    }
+
+    /**
+     * @internal since Symfony 7.4, will be removed in 8.0
+     *
+     * @final since Symfony 7.4, will be removed in 8.0
+     */
     public function __wakeup(): void
     {
+        trigger_deprecation('symfony/string', '7.4', 'Calling "%s::__wakeup()" is deprecated, use "__unserialize()" instead.', get_debug_type($this));
+
         if (!\is_string($this->string)) {
             throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
         }
