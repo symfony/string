@@ -166,6 +166,9 @@ final class EnglishInflector implements InflectorInterface
         // edges (edge)
         ['segd', 4, true, true, 'dge'],
 
+        // outages (outage) - specific fix to avoid 'outag'
+        ['segatuo', 7, true, true, 'outage'],
+
         // roses (rose), garages (garage), cassettes (cassette),
         // waltzes (waltz), heroes (hero), bushes (bush), arches (arch),
         // shoes (shoe)
