@@ -125,6 +125,7 @@ class EnglishInflectorTest extends TestCase
             ['news', 'news'],
             ['oases', ['oas', 'oase', 'oasis']],
             ['objectives', 'objective'],
+            ['outages', 'outage'],
             ['oxen', 'ox'],
             ['parties', 'party'],
             ['people', 'person'],
