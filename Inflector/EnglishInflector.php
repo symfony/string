@@ -28,6 +28,9 @@ final class EnglishInflector implements InflectorInterface
         // bacteria (bacterium)
         ['airetcab', 8, true, true, 'bacterium'],
 
+        // issues (issue)
+        ['seussi', 6, true, true, 'issue'],
+
         // corpora (corpus)
         ['aroproc', 7, true, true, 'corpus'],
 
