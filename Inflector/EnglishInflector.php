@@ -25,6 +25,9 @@ final class EnglishInflector implements InflectorInterface
         // Fourth entry: Whether the suffix may succeed a consonant
         // Fifth entry: singular suffix, normal
 
+        // nodes (node)
+        ['sedon', 5, true, true, 'node'],
+
         // bacteria (bacterium)
         ['airetcab', 8, true, true, 'bacterium'],
 
@@ -201,6 +204,9 @@ final class EnglishInflector implements InflectorInterface
         // Third entry: Whether the suffix may succeed a vowel
         // Fourth entry: Whether the suffix may succeed a consonant
         // Fifth entry: plural suffix, normal
+
+        // nodes (node)
+        ['edon', 4, true, true, 'nodes'],
 
         // axes (axis)
         ['sixa', 4, false, false, 'axes'],
