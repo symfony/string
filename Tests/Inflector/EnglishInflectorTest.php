@@ -172,16 +172,15 @@ class EnglishInflectorTest extends TestCase
             ['waltzes', ['waltz', 'waltze']],
             ['wives', 'wife'],
             ['zombies', 'zombie'],
+            ['passersby', 'passerby'],
+            ['rattles', 'rattle'],
+            ['insignia', 'insigne'],
+            ['insignias', 'insigne'],
 
             // test casing: if the first letter was uppercase, it should remain so
             ['Men', 'Man'],
             ['GrandChildren', 'GrandChild'],
             ['SubTrees', 'SubTree'],
-
-            // Known issues
-            // ['insignia', 'insigne'],
-            // ['insignias', 'insigne'],
-            // ['rattles', 'rattle'],
         ];
     }
 
@@ -263,6 +262,7 @@ class EnglishInflectorTest extends TestCase
             ['house', 'houses'],
             ['icon', 'icons'],
             ['index', ['indicies', 'indexes']],
+            ['insigne', ['insignia', 'insignias']],
             ['ion', 'ions'],
             ['iris', 'irises'],
             ['issue', 'issues'],
@@ -288,6 +288,7 @@ class EnglishInflectorTest extends TestCase
             ['objective', 'objectives'],
             ['ox', 'oxen'],
             ['party', 'parties'],
+            ['passerby', 'passersby'],
             ['person', ['persons', 'people']],
             ['phenomenon', 'phenomena'],
             ['photo', 'photos'],
@@ -299,6 +300,7 @@ class EnglishInflectorTest extends TestCase
             ['quiz', 'quizzes'],
             ['quorum', ['quora', 'quorums']],
             ['radius', 'radii'],
+            ['rattle', 'rattles'],
             ['roof', ['roofs', 'rooves']],
             ['rose', 'roses'],
             ['sandwich', 'sandwiches'],
