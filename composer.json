@@ -24,7 +24,6 @@
         "symfony/polyfill-mbstring": "~1.0"
     },
     "require-dev": {
-        "symfony/error-handler": "^6.4|^7.0|^8.0",
         "symfony/emoji": "^7.1|^8.0",
         "symfony/http-client": "^6.4|^7.0|^8.0",
         "symfony/intl": "^6.4|^7.0|^8.0",
