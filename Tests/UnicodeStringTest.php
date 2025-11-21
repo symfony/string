@@ -16,6 +16,56 @@ use Symfony\Component\String\UnicodeString;
 
 class UnicodeStringTest extends AbstractUnicodeTestCase
 {
+    /**
+     * @dataProvider provideTrimNormalization
+     */
+    public function testTrimPrefixNormalization(string $expected, string $string, $prefix)
+    {
+        $str = new UnicodeString($string);
+        $this->assertSame($expected, $str->trimPrefix($prefix)->toString());
+    }
+
+    /**
+     * @dataProvider provideTrimNormalization
+     */
+    public function testTrimSuffixNormalization(string $expected, string $string, $suffix)
+    {
+        $suffixStr = match (true) {
+            $suffix instanceof AbstractString => $suffix->toString(),
+            \is_array($suffix) => implode('', $suffix),
+            $suffix instanceof \Traversable => implode('', iterator_to_array($suffix)),
+            default => (string) $suffix,
+        };
+
+        $str = new UnicodeString($expected.$suffixStr);
+        $this->assertSame($expected, $str->trimSuffix($suffix)->toString());
+    }
+
+    public static function provideTrimNormalization(): iterable
+    {
+        // "é" in NFC (\xC3\xA9) vs NFD (\x65\xCC\x81)
+        $nfc = "\xC3\xA9";
+        $nfd = "\x65\xCC\x81";
+
+        yield 'nfc_string_nfd_prefix' => ['abc', $nfc.'abc', $nfd];
+        yield 'nfd_string_nfc_prefix' => ['abc', $nfd.'abc', $nfc];
+
+        yield 'abstract_string' => ['abc', $nfc.'abc', new UnicodeString($nfd)];
+
+        yield 'array' => ['abc', $nfc.'abc', [$nfd]];
+
+        yield 'stringable' => ['abc', $nfc.'abc', new class($nfd) implements \Stringable {
+            public function __construct(private string $s)
+            {
+            }
+
+            public function __toString(): string
+            {
+                return $this->s;
+            }
+        }];
+    }
+
     protected static function createFromString(string $string): AbstractString
     {
         return new UnicodeString($string);
