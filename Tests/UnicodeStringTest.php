@@ -296,6 +296,9 @@ class UnicodeStringTest extends AbstractUnicodeTestCase
             [
                 [false, "cle\u{0301} prive\u{0301}e", 'cle', UnicodeString::NFD],
                 [true, "cle\u{0301} prive\u{0301}e", 'clé', UnicodeString::NFD],
+                [true, '06', '0'],
+                [true, '0', '0'],
+                [true, '012', '01'],
             ]
         );
     }
@@ -307,6 +310,10 @@ class UnicodeStringTest extends AbstractUnicodeTestCase
             [
                 [false, "cle\u{0301} prive\u{0301}e", 'ee', UnicodeString::NFD],
                 [true, "cle\u{0301} prive\u{0301}e", 'ée', UnicodeString::NFD],
+                [false, '06', '0'],
+                [true, '06', '6'],
+                [true, '0', '0'],
+                [true, '10', '0'],
             ]
         );
     }
