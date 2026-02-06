@@ -22,7 +22,9 @@ abstract class AbstractUnicodeTestCase extends AbstractAsciiTestCase
         return array_merge(
             parent::provideWidth(),
             [
+                [1, '⚠'],
                 [2, '⚠️'],
+                [2, '1️⃣'],
                 [14, '<<<END
 This is a
 multiline text
