@@ -600,7 +600,12 @@ abstract class AbstractUnicodeString extends AbstractString
             }
 
             if (0xFE0F === $codePoint) {
-                if (null !== $lastChar && 1 === $lastWidth && preg_match('/\p{Emoji}/u', $lastChar)) {
+                if (\PCRE_VERSION_MAJOR < 10 || \PCRE_VERSION_MAJOR === 10 && \PCRE_VERSION_MINOR < 40) {
+                    $regex = '/\p{So}/u';
+                } else {
+                    $regex = '/\p{Emoji}/u';
+                }
+                if (null !== $lastChar && 1 === $lastWidth && preg_match($regex, $lastChar)) {
                     ++$width;
                     $lastWidth = 2;
                 }
