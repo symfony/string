@@ -54,6 +54,6 @@ require_once $autoload;
 
 echo "Generating wcswidth tables data...\n";
 
-(new WcswidthDataGenerator(\dirname(__DIR__).'/data'))->generate();
+(new WcswidthDataGenerator(dirname(__DIR__).'/data'))->generate();
 
 echo "Done.\n";
